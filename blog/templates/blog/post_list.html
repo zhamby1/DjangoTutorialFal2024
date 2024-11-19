@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!--Meta information tag - tag on how to access resources or do things outside of the body tag-->
+<head>
+    <title>Django Girls Blog</title>
+</head>
+<body>
+    <!--header tag.. this tag defines a header for your webpage. usually your icon or image bar-->
+    <!--tags like header, nav, and div don't really do anything.  They are a way to divide your webpage into pieces or sections-->
+    <!--this is useful for webcrawlers as well as CSS as we can identify parts of our webpage to change or manipulate-->
+
+    <header>
+        <!--h1 - means large text associate with a title.. standing for heading-->
+        <!--There are mutiple head sizes (h1-h6) that denote heading and subheadings-->
+        <!--links or anchors use the a href (html reference) tag.  we have it equal another web page or link-->
+        <!--if we want more than one tag to represent something in our text, we have to nest them-->
+        <h1><a href="/">Django Girls Blog</a></h1>
+    </header>
+
+    {% for post in posts %}
+
+        <!--article tags are like nav/header/div... they mark each section like an article-->
+        <article>
+            <!--format things in time when we use datestamps-->
+            <time>published: {{post.published_date}}</time>
+            <h2><a href="">{{post.title}}</a></h2>
+            <!--This is the p tag.  in between each p tag a paragraph is created and displayed-->
+            <p>{{post.text|linebreaksbr}}</p>
+        </article>
+    {% endfor %}
+
+   
+
+
+
+
+   
+ 
+</body>
+</html>
