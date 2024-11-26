@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <h2>New Post</h2>
+    <!--add a form.  a form has a http method (POST) that is called when you want to add something new to a database or resource-->
+
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="save btn btn-secondary">Save</button>
+    </form>
+
+
+{% endblock %}
