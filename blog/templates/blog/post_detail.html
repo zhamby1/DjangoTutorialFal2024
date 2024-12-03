@@ -10,11 +10,26 @@
                 <a class="btn btn-secondary" href="{% url 'post_edit' pk=post.pk %}">
                     {% include './icons/pencil-fill.svg' %}
                 </a>
-                {% endif %}
             </aside>
+
+            <form method="POST" action="{% url 'post_remove' pk=post.pk %}">{% csrf_token %}
+                <button type="submit" class="btn btn-secondary" name="delete">
+                Delete
+                </button>
+            </form>
+            
+
+
+                {% endif %}
+          
             {% if post.published_date %}
-            <!--format things in time when we use datestamps-->
-            <time class="date">published: {{post.published_date}}</time>
+                <!--format things in time when we use datestamps-->
+                <time class="date">published: {{post.published_date}}</time>
+            {% else %}
+                <form method="POST" action="{% url 'post_publish' pk=post.pk %}" class="post-form">{% csrf_token %}
+                    <button type="submit" class="btn btn-secondary" name="publish">Publish</button>
+                    
+                </form>
             {% endif %}
 
         

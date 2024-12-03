@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+
+        <!--article tags are like nav/header/div... they mark each section like an article-->
+        <article class="post">
+            <!--format things in time when we use datestamps-->
+            <time class="date">created: {{post.create_date}}</time>
+
+            <!-- add the ability to access individual posts and get greater detail-->
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+            <!--This is the p tag.  in between each p tag a paragraph is created and displayed-->
+            <p>{{post.text|linebreaksbr}}</p>
+        </article>
+
+    {% endfor %}
+{% endblock %}

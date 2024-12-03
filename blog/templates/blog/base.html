@@ -25,8 +25,18 @@
         <!--container is a built in bootstrap CSS class that will contain anything between the div tags and give it some standard sizing, margin, and padding-->
         <div class="container">
             {% if user.is_authenticated %}
+            <a href="{% url 'post_draft_list' %}" class="top-menu">
+                {% include './icons/pencil-square.svg' %}
+            </a>
             <a href="{% url 'post_new' %}" class="top-menu">
                 {% include './icons/file-earmark-plus.svg' %}
+            </a>
+            <a href="{% url 'logout' %}" class="top-menu">
+                {% include './icons/door-open-fill.svg' %}
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}" class="top-menu">
+                {% include './icons/door-open.svg' %}
             </a>
             {% endif %}
             <h1><a href="/">Django Girls Blog</a></h1>
